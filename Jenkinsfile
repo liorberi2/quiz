@@ -11,7 +11,7 @@ pipeline {
             stage ('Build') {
             steps {
                 script {
-                 ./main.py
+                 sh main.py
  
             }
         }
