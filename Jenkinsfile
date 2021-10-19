@@ -1,20 +1,17 @@
 pipeline {
-    agent any
-	
-  // clean environment with new files
-  stages {
-    stage('Checkout') {
-      steps {
-        cleanWs()
-        checkout scm
-      }
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
     }
- 
-        //  run program 
-        stage ('Build') {
+
+            stage ('Build') {
             steps {
                 script {
-                    main.py 
+                 ./main.py
  
             }
         }
